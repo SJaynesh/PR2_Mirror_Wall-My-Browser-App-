@@ -53,7 +53,7 @@ https://user-images.githubusercontent.com/115562979/236885046-e7c37669-bcca-4353
 
 ### Photos
 
-<p>
+<p float="left">
 <img style="margin-right: 30px" src = "https://user-images.githubusercontent.com/115562979/236885291-c0098996-77c1-432a-be55-3505c4aaf5fd.png" width=22% height=35%>
 <img style="margin-right: 30px" src = "https://user-images.githubusercontent.com/115562979/236885330-3ad22317-4019-4fa4-8015-c5dde1842b10.png" width=22% height=35%>
 <img style="margin-right: 30px" src = "https://user-images.githubusercontent.com/115562979/236885375-ff52e446-c8a0-484f-b065-3437bade26ae.png" width=22% height=35%>
