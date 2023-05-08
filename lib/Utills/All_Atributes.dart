@@ -28,5 +28,5 @@ List<Map<dynamic, String>> MyWebBrowser = [
   },
 ];
 
-List BookMarkName = [];
-List BookMark = [];
+List<dynamic> BookMarkName = [];
+List<dynamic> BookMark = [];

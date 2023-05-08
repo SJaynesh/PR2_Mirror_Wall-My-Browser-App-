@@ -108,6 +108,13 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                                 ? ListView.builder(
                               itemCount: BookMark.length,
                               itemBuilder: (context, i) => ListTile(
+                              onTap:(){
+                                inAppWebViewController?.loadUrl(
+                                    urlRequest: URLRequest(
+                                        url:
+                                            BookMark[i]));
+                                Navigator.pop(context);
+                              },
                                 title: Text(
                                   "${BookMarkName[i]}",
                                   style: TextStyle(
