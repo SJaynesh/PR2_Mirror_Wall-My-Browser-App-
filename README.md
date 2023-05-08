@@ -47,7 +47,24 @@ enhance the knowledge and skills of IT students in mobile app development using 
 
 ## Project OutPut :
 
-https://user-images.githubusercontent.com/115562979/236831369-0f581bf1-9315-4279-9464-4ec5886fa875.mp4
+### Video
+
+https://user-images.githubusercontent.com/115562979/236885046-e7c37669-bcca-4353-b82f-acc251abfe89.mp4
+
+### Photos
+
+![1](https://user-images.githubusercontent.com/115562979/236885291-c0098996-77c1-432a-be55-3505c4aaf5fd.png)
+![2](https://user-images.githubusercontent.com/115562979/236885330-3ad22317-4019-4fa4-8015-c5dde1842b10.png)
+![3](https://user-images.githubusercontent.com/115562979/236885375-ff52e446-c8a0-484f-b065-3437bade26ae.png)
+![4](https://user-images.githubusercontent.com/115562979/236885389-6c2bf2fa-0651-4cc1-bb31-a1994d47577c.png)
+![5](https://user-images.githubusercontent.com/115562979/236885452-685d11b0-697f-448b-bc31-6deef8c3401f.png)
+![6](https://user-images.githubusercontent.com/115562979/236885471-79ad4e7a-6159-4c47-b70a-b9c2ef4f031d.png)
+![7](https://user-images.githubusercontent.com/115562979/236885497-d238a728-7337-416a-b93b-a602d0322014.png)
+![8](https://user-images.githubusercontent.com/115562979/236885523-0c7445ae-36b2-446f-9cc4-2ed4197658d3.png)
+![9](https://user-images.githubusercontent.com/115562979/236885560-3cf4b962-a26e-4c5d-ab5b-2b5632f9e12c.png)
+![10](https://user-images.githubusercontent.com/115562979/236885575-9ec4ee8d-02a9-48c7-9f73-16260a19940a.png)
+
+
 
 
 
