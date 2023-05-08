@@ -465,7 +465,7 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                       icon: Icon(Icons.arrow_forward_ios),
                     ),
                   ],
-                )),
+                ),),
           ],
         ),
       ),
