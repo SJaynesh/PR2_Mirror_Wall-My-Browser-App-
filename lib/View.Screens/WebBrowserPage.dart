@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:mirror_wall_code/Controllers/LinerValue_Provider.dart';
 import 'package:mirror_wall_code/Utills/All_Atributes.dart';
+
+import 'package:provider/provider.dart';
 
 class WebBrowserPage extends StatefulWidget {
   const WebBrowserPage({Key? key}) : super(key: key);
@@ -16,6 +19,22 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
   String PopupMenuItemSelect = "1";
   String PopupMenuItemURI = "";
 
+  late PullToRefreshController pullToRefreshController;
+
+  TextEditingController SearchWebView = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    pullToRefreshController = PullToRefreshController(
+        options: PullToRefreshOptions(
+          color: Color(0xff6054c1),
+        ),
+        onRefresh: () async {
+          await inAppWebViewController?.reload();
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     Map webValue = ModalRoute.of(context)!.settings.arguments as Map;
@@ -27,7 +46,7 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Jaynesh Sarkar",
+          "${webValue['name']}",
           style: TextStyle(
             color: Colors.black,
             fontSize: h * 0.025,
@@ -86,27 +105,43 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                             ),
                             Container(
                               height: h,
-                              child: ListView.builder(
-                                itemCount: BookMark.length,
-                                itemBuilder: (context, i) => ListTile(
-                                  title: Text("${BookMark[i]}"),
-                                  trailing: IconButton(
-                                      onPressed: () {
-                                        setState(() {
-                                          BookMark.remove(BookMark[i]);
-                                          Navigator.of(context).pop();
-                                        });
-                                      },
-                                      icon: Icon(Icons.delete)),
-                                ),
-                              ),
+                              child: (BookMark.isNotEmpty)
+                                  ? ListView.builder(
+                                      itemCount: BookMark.length,
+                                      itemBuilder: (context, i) => ListTile(
+                                        title: Text(
+                                          "${BookMarkName[i]}",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        subtitle: Text("${BookMark[i]}"),
+                                        trailing: IconButton(
+                                            onPressed: () {
+                                              setState(() {
+                                                BookMark.remove(BookMark[i]);
+                                              });
+                                            },
+                                            icon: Icon(Icons.delete)),
+                                      ),
+                                    )
+                                  : Center(
+                                      child: Text(
+                                        "No Any Bookmarks Yet... 😓😓",
+                                        style: TextStyle(
+                                            fontSize: h * 0.02  ,
+                                            fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ),
                             ),
                           ],
                         ),
                       ),
                     ),
                   );
-                } else if (val == "2") {
+                }
+                else if (val == "2") {
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
@@ -118,12 +153,12 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                           alignment: Alignment.center,
                           title: Center(
                               child: Text(
-                                "Search Engine",
-                                style: TextStyle(
-                                  fontSize: h * 0.03,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              )),
+                            "Search Engine",
+                            style: TextStyle(
+                              fontSize: h * 0.03,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          )),
                           content: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -185,8 +220,8 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                                   setState(() {
                                     PopupMenuItemURI = val!;
                                     inAppWebViewController!.loadUrl(
-                                        urlRequest:
-                                        URLRequest(url: Uri.parse(PopupMenuItemURI)));
+                                        urlRequest: URLRequest(
+                                            url: Uri.parse(PopupMenuItemURI)));
                                     Navigator.of(context).pop();
                                   });
                                 },
@@ -205,8 +240,8 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                                   setState(() {
                                     PopupMenuItemURI = val!;
                                     inAppWebViewController!.loadUrl(
-                                        urlRequest:
-                                        URLRequest(url: Uri.parse(PopupMenuItemURI)));
+                                        urlRequest: URLRequest(
+                                            url: Uri.parse(PopupMenuItemURI)));
                                     Navigator.of(context).pop();
                                   });
                                 },
@@ -223,19 +258,22 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ),
-            itemBuilder: (context) =>
-            [
+            itemBuilder: (context) => [
               PopupMenuItem(
                 value: "1",
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                     Icon(Icons.bookmark,
-                        color: Colors.grey),
+                    Icon(Icons.bookmark, color: Colors.grey),
                     SizedBox(
                       width: w * 0.05,
                     ),
-                    Text("All BookMark",style: TextStyle(fontWeight: FontWeight.w600,),),
+                    Text(
+                      "All BookMark",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -244,11 +282,16 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                     Icon(Icons.screen_search_desktop, color: Colors.grey),
+                    Icon(Icons.screen_search_desktop, color: Colors.grey),
                     SizedBox(
                       width: w * 0.05,
                     ),
-                     Text("Search Engine",style: TextStyle(fontWeight: FontWeight.w600,),),
+                    Text(
+                      "Search Engine",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -266,11 +309,23 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
             Expanded(
               flex: 16,
               child: InAppWebView(
+                pullToRefreshController: pullToRefreshController,
                 onLoadStart: (controller, url) {
-                  setState(() {
+                  setState(() async {
                     inAppWebViewController = controller;
-                    urlBookMark = url.toString();
                   });
+                },
+                onLoadStop: (controller, uri) async {
+                  await pullToRefreshController.endRefreshing();
+                },
+                onProgressChanged: (controller, progress){
+                  Provider.of<LinerValue_Provider>(context,listen: false).ChangeProgress(progress);
+                  print("111111111111111111");
+                  print(progress);
+                  print("111111111111111111");
+                  if(progress==100){
+                    pullToRefreshController.endRefreshing();
+                  }
                 },
                 initialUrlRequest: URLRequest(url: Uri.parse(webValue['uri'])),
               ),
@@ -278,9 +333,19 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
             Expanded(
               flex: 2,
               child: TextFormField(
+                controller: SearchWebView,
                 decoration: InputDecoration(
                   hintText: "Search or type web address",
-                  suffixIcon: Icon(Icons.search),
+                  suffixIcon: IconButton(
+                    onPressed: () async {
+                      String searchUri = SearchWebView.text;
+                      inAppWebViewController?.loadUrl(
+                          urlRequest: URLRequest(
+                              url: Uri.parse(
+                                  "${webValue['search']}$searchUri")));
+                    },
+                    icon: Icon(Icons.search),
+                  ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(
@@ -296,6 +361,15 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                 ),
               ),
             ),
+            (Provider.of<LinerValue_Provider>(context).l1.WebProgress < 1.0)
+                ? Transform.scale(
+              scale: 1.5,
+              child: LinearProgressIndicator(
+                color: Color(0xff6054c1),
+                backgroundColor: Colors.indigo.shade100,
+                value: Provider.of<LinerValue_Provider>(context).l1.WebProgress,
+              ),)
+                : Container(),
             Expanded(
                 flex: 2,
                 child: Row(
@@ -306,18 +380,15 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                         await inAppWebViewController?.loadUrl(
                             urlRequest:
                                 URLRequest(url: Uri.parse(webValue['uri'])));
+                        SearchWebView.clear();
                       },
                       icon: Icon(Icons.home_filled),
                     ),
                     IconButton(
-                      onPressed: () {
-                        setState(() {
-                          //BookMark.add(inAppWebViewController?.getSelectedText());
-                          BookMark.add(urlBookMark);
-                          print("==========");
-                          print(BookMark);
-                          print("==========");
-                        });
+                      onPressed: () async {
+                        BookMarkName.add(
+                            await inAppWebViewController?.getTitle());
+                        BookMark.add(await inAppWebViewController?.getUrl());
                       },
                       icon: Icon(Icons.bookmark_add_outlined),
                     ),
@@ -351,19 +422,3 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
     );
   }
 }
-
-// PopupMenuItem(
-// value: "Option 1",
-// child: Row(
-// children: [
-// const Icon(
-// Icons.bookmark,
-// color: Colors.grey,
-// ),
-// SizedBox(
-// width: w * 0.03,
-// ),
-// Text("All BookMark"),
-// ],
-// ),
-// ),
