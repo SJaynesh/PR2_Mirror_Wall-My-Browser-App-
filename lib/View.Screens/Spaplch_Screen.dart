@@ -37,7 +37,7 @@ class _SpalchScreenState extends State<SpalchScreen> {
             color: Colors.white12,
           ),
           Positioned(
-            left: h * 0.17,
+            left: h * 0.13,
             child: Row(
               children: [
                 Image.asset(
@@ -55,7 +55,7 @@ class _SpalchScreenState extends State<SpalchScreen> {
             ),
           ),
           Positioned(
-            right: h * 0.2,
+            right: h * 0.1,
             child: Row(
               children: [
                 Image.asset(

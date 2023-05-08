@@ -370,6 +370,7 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                 },
                 onLoadStop: (controller, uri) async {
                   await pullToRefreshController?.endRefreshing();
+
                 },
                 onProgressChanged: (controller, progress) {
                   Provider.of<LinerValue_Provider>(context, listen: false)
