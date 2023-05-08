@@ -119,6 +119,7 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                                     onPressed: () {
                                       setState(() {
                                         BookMark.remove(BookMark[i]);
+                                        BookMarkName.remove(BookMarkName[i]);
                                         Navigator.of(context).pop();
                                       });
                                     },
