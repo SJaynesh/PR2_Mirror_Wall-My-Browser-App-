@@ -8,5 +8,6 @@ class LinerValue_Provider extends ChangeNotifier{
   ChangeProgress(Pg) {
     l1.WebProgress = Pg/100;
     notifyListeners();
+    
   }
 }

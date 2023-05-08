@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mirror_wall_code/Controllers/Connectivity_Provider.dart';
 import 'package:mirror_wall_code/Controllers/LinerValue_Provider.dart';
 import 'package:mirror_wall_code/Controllers/PopupMenuItemSelect_Provider.dart';
 import 'package:mirror_wall_code/View.Screens/HomePage.dart';
@@ -14,7 +13,6 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (context)=> LinerValue_Provider()),
         ChangeNotifierProvider(create: (context)=> PopupMenuItemSelect_Provider()),
-        ChangeNotifierProvider(create: (context)=> Connectivity_Provider()),
       ],
       builder: (context,_) =>  MaterialApp(
         debugShowCheckedModeBanner: false,

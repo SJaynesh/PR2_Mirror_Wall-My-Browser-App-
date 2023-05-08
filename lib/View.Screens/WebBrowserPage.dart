@@ -7,7 +7,6 @@ import 'package:mirror_wall_code/Utills/All_Atributes.dart';
 
 import 'package:provider/provider.dart';
 
-import '../Controllers/Connectivity_Provider.dart';
 
 class WebBrowserPage extends StatefulWidget {
   const WebBrowserPage({Key? key}) : super(key: key);
@@ -107,34 +106,34 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                             height: h,
                             child: (BookMark.isNotEmpty)
                                 ? ListView.builder(
-                                    itemCount: BookMark.length,
-                                    itemBuilder: (context, i) => ListTile(
-                                      title: Text(
-                                        "${BookMarkName[i]}",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                      subtitle: Text("${BookMark[i]}"),
-                                      trailing: IconButton(
-                                          onPressed: () {
-                                            setState(() {
-                                              BookMark.remove(BookMark[i]);
-                                              Navigator.of(context).pop();
-                                            });
-                                          },
-                                          icon: Icon(Icons.delete)),
-                                    ),
-                                  )
-                                : Center(
-                                    child: Text(
-                                      "No Any Bookmarks Yet... 😓😓",
-                                      style: TextStyle(
-                                        fontSize: h * 0.02,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
+                              itemCount: BookMark.length,
+                              itemBuilder: (context, i) => ListTile(
+                                title: Text(
+                                  "${BookMarkName[i]}",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
                                   ),
+                                ),
+                                subtitle: Text("${BookMark[i]}"),
+                                trailing: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        BookMark.remove(BookMark[i]);
+                                        Navigator.of(context).pop();
+                                      });
+                                    },
+                                    icon: Icon(Icons.delete)),
+                              ),
+                            )
+                                : Center(
+                              child: Text(
+                                "No Any Bookmarks Yet... 😓😓",
+                                style: TextStyle(
+                                  fontSize: h * 0.02,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -153,22 +152,22 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                         alignment: Alignment.center,
                         title: Center(
                             child: Text(
-                          "Search Engine",
-                          style: TextStyle(
-                            fontSize: h * 0.03,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        )),
+                              "Search Engine",
+                              style: TextStyle(
+                                fontSize: h * 0.03,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            )),
                         content: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             RadioListTile(
                               groupValue:
-                                  Provider.of<PopupMenuItemSelect_Provider>(
-                                          context,
-                                          listen: false)
-                                      .p1
-                                      .PopupMenuItemURI,
+                              Provider.of<PopupMenuItemSelect_Provider>(
+                                  context,
+                                  listen: false)
+                                  .p1
+                                  .PopupMenuItemURI,
                               value: "https://www.google.com/",
                               title: Text(
                                 "Google",
@@ -181,15 +180,15 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                                 setState(() {
                                   // PopupMenuItemURI = val!;
                                   Provider.of<PopupMenuItemSelect_Provider>(
-                                          context,
-                                          listen: false)
+                                      context,
+                                      listen: false)
                                       .getValueURI(val);
                                   inAppWebViewController?.loadUrl(
                                     urlRequest: URLRequest(
                                       url: Uri.parse(Provider.of<
-                                                  PopupMenuItemSelect_Provider>(
-                                              context,
-                                              listen: false)
+                                          PopupMenuItemSelect_Provider>(
+                                          context,
+                                          listen: false)
                                           .p1
                                           .PopupMenuItemURI),
                                     ),
@@ -201,11 +200,11 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                             RadioListTile(
                               value: "https://www.yahoo.com/?guccounter=1",
                               groupValue:
-                                  Provider.of<PopupMenuItemSelect_Provider>(
-                                          context,
-                                          listen: false)
-                                      .p1
-                                      .PopupMenuItemURI,
+                              Provider.of<PopupMenuItemSelect_Provider>(
+                                  context,
+                                  listen: false)
+                                  .p1
+                                  .PopupMenuItemURI,
                               title: Text(
                                 "Yahoo",
                                 style: TextStyle(
@@ -217,15 +216,15 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                                 setState(() {
                                   //PopupMenuItemURI = val!;
                                   Provider.of<PopupMenuItemSelect_Provider>(
-                                          context,
-                                          listen: false)
+                                      context,
+                                      listen: false)
                                       .getValueURI(val);
                                   inAppWebViewController?.loadUrl(
                                     urlRequest: URLRequest(
                                       url: Uri.parse(Provider.of<
-                                                  PopupMenuItemSelect_Provider>(
-                                              context,
-                                              listen: false)
+                                          PopupMenuItemSelect_Provider>(
+                                          context,
+                                          listen: false)
                                           .p1
                                           .PopupMenuItemURI),
                                     ),
@@ -237,11 +236,11 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                             RadioListTile(
                               value: "https://www.bing.com/",
                               groupValue:
-                                  Provider.of<PopupMenuItemSelect_Provider>(
-                                          context,
-                                          listen: false)
-                                      .p1
-                                      .PopupMenuItemURI,
+                              Provider.of<PopupMenuItemSelect_Provider>(
+                                  context,
+                                  listen: false)
+                                  .p1
+                                  .PopupMenuItemURI,
                               title: Text(
                                 "Bing",
                                 style: TextStyle(
@@ -253,15 +252,15 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                                 setState(() {
                                   //PopupMenuItemURI = val!;
                                   Provider.of<PopupMenuItemSelect_Provider>(
-                                          context,
-                                          listen: false)
+                                      context,
+                                      listen: false)
                                       .getValueURI(val);
                                   inAppWebViewController?.loadUrl(
                                       urlRequest: URLRequest(
                                           url: Uri.parse(Provider.of<
-                                                      PopupMenuItemSelect_Provider>(
-                                                  context,
-                                                  listen: false)
+                                              PopupMenuItemSelect_Provider>(
+                                              context,
+                                              listen: false)
                                               .p1
                                               .PopupMenuItemURI)));
                                   Navigator.of(context).pop();
@@ -271,11 +270,11 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                             RadioListTile(
                               value: "https://duckduckgo.com/",
                               groupValue:
-                                  Provider.of<PopupMenuItemSelect_Provider>(
-                                          context,
-                                          listen: false)
-                                      .p1
-                                      .PopupMenuItemURI,
+                              Provider.of<PopupMenuItemSelect_Provider>(
+                                  context,
+                                  listen: false)
+                                  .p1
+                                  .PopupMenuItemURI,
                               title: Text(
                                 "Duck Duck Go",
                                 style: TextStyle(
@@ -287,15 +286,15 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
                                 setState(() {
                                   // PopupMenuItemURI = val!;
                                   Provider.of<PopupMenuItemSelect_Provider>(
-                                          context,
-                                          listen: false)
+                                      context,
+                                      listen: false)
                                       .getValueURI(val);
                                   inAppWebViewController?.loadUrl(
                                       urlRequest: URLRequest(
                                           url: Uri.parse(Provider.of<
-                                                      PopupMenuItemSelect_Provider>(
-                                                  context,
-                                                  listen: false)
+                                              PopupMenuItemSelect_Provider>(
+                                              context,
+                                              listen: false)
                                               .p1
                                               .PopupMenuItemURI)));
                                   Navigator.of(context).pop();
@@ -357,134 +356,126 @@ class _WebBrowserPageState extends State<WebBrowserPage> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: (Provider.of<Connectivity_Provider>(context).c1.status == "Waiting")
-          ? Padding(
-              padding: EdgeInsets.all(8.0),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Expanded(
+              flex: 16,
               child: InAppWebView(
-                  initialUrlRequest: URLRequest(
-                      url: Uri.parse(
-                          "https://www.google.com/search?q=lion&oq=lion&aqs=chrome.0.69i59j69i60.6022j0j7&sourceid=chrome&ie=UTF-8"))),
-            )
-          : Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Expanded(
-                    flex: 16,
-                    child: InAppWebView(
-                      pullToRefreshController: pullToRefreshController,
-                      onLoadStart: (controller, url) {
-                        inAppWebViewController = controller;
-                      },
-                      onLoadStop: (controller, uri) async {
-                        await pullToRefreshController?.endRefreshing();
-                      },
-                      onProgressChanged: (controller, progress) {
-                        Provider.of<LinerValue_Provider>(context, listen: false)
-                            .ChangeProgress(progress);
-                        if (progress == 100) {
-                          pullToRefreshController?.endRefreshing();
-                        }
-                      },
-                      initialUrlRequest:
-                          URLRequest(url: Uri.parse(webValue['uri'])),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: TextFormField(
-                      controller: SearchWebView,
-                      decoration: InputDecoration(
-                        hintText: "Search or type web address",
-                        suffixIcon: IconButton(
-                          onPressed: () async {
-                            String searchUri = SearchWebView.text;
-                            inAppWebViewController?.loadUrl(
-                                urlRequest: URLRequest(
-                                    url: Uri.parse(
-                                        "${webValue['search']}$searchUri")));
-                          },
-                          icon: Icon(Icons.search),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            color: Colors.black38,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            color: Colors.blue.shade600,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  (Provider.of<LinerValue_Provider>(context).l1.WebProgress <
-                          1.0)
-                      ? Transform.scale(
-                          scale: 1.5,
-                          child: LinearProgressIndicator(
-                            color: Color(0xff6054c1),
-                            backgroundColor: Colors.indigo.shade100,
-                            value: Provider.of<LinerValue_Provider>(context)
-                                .l1
-                                .WebProgress,
-                          ),
-                        )
-                      : Container(),
-                  Expanded(
-                      flex: 2,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          IconButton(
-                            onPressed: () async {
-                              await inAppWebViewController?.loadUrl(
-                                  urlRequest: URLRequest(
-                                      url: Uri.parse(webValue['uri'])));
-                              SearchWebView.clear();
-                            },
-                            icon: Icon(Icons.home_filled),
-                          ),
-                          IconButton(
-                            onPressed: () async {
-                              BookMarkName.add(
-                                  await inAppWebViewController?.getTitle());
-                              BookMark.add(
-                                  await inAppWebViewController?.getUrl());
-                            },
-                            icon: Icon(Icons.bookmark_add_outlined),
-                          ),
-                          IconButton(
-                            onPressed: () async {
-                              if (await inAppWebViewController!.canGoBack()) {
-                                await inAppWebViewController?.goBack();
-                              }
-                            },
-                            icon: Icon(Icons.arrow_back_ios),
-                          ),
-                          IconButton(
-                            onPressed: () async {
-                              await inAppWebViewController?.reload();
-                            },
-                            icon: Icon(Icons.refresh),
-                          ),
-                          IconButton(
-                            onPressed: () async {
-                              if (await inAppWebViewController!
-                                  .canGoForward()) {
-                                await inAppWebViewController?.goForward();
-                              }
-                            },
-                            icon: Icon(Icons.arrow_forward_ios),
-                          ),
-                        ],
-                      )),
-                ],
+                pullToRefreshController: pullToRefreshController,
+                onLoadStart: (controller, url) {
+                  inAppWebViewController = controller;
+                },
+                onLoadStop: (controller, uri) async {
+                  await pullToRefreshController?.endRefreshing();
+                },
+                onProgressChanged: (controller, progress) {
+                  Provider.of<LinerValue_Provider>(context, listen: false)
+                      .ChangeProgress(progress);
+                  if (progress == 100) {
+                    pullToRefreshController?.endRefreshing();
+                  }
+                },
+                initialUrlRequest:
+                URLRequest(url: Uri.parse(webValue['uri'])),
               ),
             ),
+            Expanded(
+              flex: 2,
+              child: TextFormField(
+                controller: SearchWebView,
+                decoration: InputDecoration(
+                  hintText: "Search or type web address",
+                  suffixIcon: IconButton(
+                    onPressed: () async {
+                      String searchUri = SearchWebView.text;
+                      inAppWebViewController?.loadUrl(
+                          urlRequest: URLRequest(
+                              url: Uri.parse(
+                                  "${webValue['search']}$searchUri")));
+                    },
+                    icon: Icon(Icons.search),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.black38,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(
+                      color: Colors.blue.shade600,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            (Provider.of<LinerValue_Provider>(context).l1.WebProgress <
+                1.0)
+                ? Transform.scale(
+              scale: 1.5,
+              child: LinearProgressIndicator(
+                color: Color(0xff6054c1),
+                backgroundColor: Colors.indigo.shade100,
+                value: Provider.of<LinerValue_Provider>(context)
+                    .l1
+                    .WebProgress,
+              ),
+            )
+                : Container(),
+            Expanded(
+                flex: 2,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    IconButton(
+                      onPressed: () async {
+                        await inAppWebViewController?.loadUrl(
+                            urlRequest: URLRequest(
+                                url: Uri.parse(webValue['uri'])));
+                        SearchWebView.clear();
+                      },
+                      icon: Icon(Icons.home_filled),
+                    ),
+                    IconButton(
+                      onPressed: () async {
+                        BookMarkName.add(
+                            await inAppWebViewController?.getTitle());
+                        BookMark.add(
+                            await inAppWebViewController?.getUrl());
+                      },
+                      icon: Icon(Icons.bookmark_add_outlined),
+                    ),
+                    IconButton(
+                      onPressed: () async {
+                        if (await inAppWebViewController!.canGoBack()) {
+                          await inAppWebViewController?.goBack();
+                        }
+                      },
+                      icon: Icon(Icons.arrow_back_ios),
+                    ),
+                    IconButton(
+                      onPressed: () async {
+                        await inAppWebViewController?.reload();
+                      },
+                      icon: Icon(Icons.refresh),
+                    ),
+                    IconButton(
+                      onPressed: () async {
+                        if (await inAppWebViewController!
+                            .canGoForward()) {
+                          await inAppWebViewController?.goForward();
+                        }
+                      },
+                      icon: Icon(Icons.arrow_forward_ios),
+                    ),
+                  ],
+                )),
+          ],
+        ),
+      ),
     );
   }
 }

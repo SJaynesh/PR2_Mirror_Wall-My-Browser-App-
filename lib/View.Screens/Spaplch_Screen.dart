@@ -16,7 +16,8 @@ class _SpalchScreenState extends State<SpalchScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 5), () {
-      Navigator.of(context).pushNamedAndRemoveUntil('HomePage', (route) => false);
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil('HomePage', (route) => false);
     });
   }
 

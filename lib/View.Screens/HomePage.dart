@@ -48,7 +48,8 @@ class _HomePageState extends State<HomePage> {
             children: [
               GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushNamed('WebBrowserPage',arguments: MyWebBrowser[i]);
+                  Navigator.of(context)
+                      .pushNamed('WebBrowserPage', arguments: MyWebBrowser[i]);
                 },
                 child: Container(
                   height: h * 0.13,
