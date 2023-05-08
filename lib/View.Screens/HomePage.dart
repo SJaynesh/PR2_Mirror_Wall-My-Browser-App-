@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mirror_wall_code/Utills/All_Atributes.dart';
 
-import 'package:provider/provider.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 

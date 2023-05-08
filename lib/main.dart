@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:mirror_wall_code/Controllers/Connectivity_Provider.dart';
 import 'package:mirror_wall_code/Controllers/LinerValue_Provider.dart';
+import 'package:mirror_wall_code/Controllers/PopupMenuItemSelect_Provider.dart';
 import 'package:mirror_wall_code/View.Screens/HomePage.dart';
 import 'package:mirror_wall_code/View.Screens/Spaplch_Screen.dart';
 import 'package:mirror_wall_code/View.Screens/WebBrowserPage.dart';
 
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-
-  SharedPreferences Pref = await SharedPreferences.getInstance();
-
-  bool isDark = await Pref.getBool('isDark') ?? false;
-
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context)=> LinerValue_Provider()),
+        ChangeNotifierProvider(create: (context)=> PopupMenuItemSelect_Provider()),
+        ChangeNotifierProvider(create: (context)=> Connectivity_Provider()),
       ],
       builder: (context,_) =>  MaterialApp(
         debugShowCheckedModeBanner: false,

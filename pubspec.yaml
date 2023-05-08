@@ -49,6 +49,7 @@ dev_dependencies:
   provider:
   shared_preferences:
   flutter_inappwebview:
+  connectivity_plus:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
